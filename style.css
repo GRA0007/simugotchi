@@ -1,0 +1,179 @@
+* {
+	font-family:Arial;
+	outline:none;
+}
+body {
+	padding:0;
+	margin:0;
+	background-image:url("bg.svg");
+	background-size:100px 100px;
+}
+#frame {
+	/*background-image:url("frame.svg");
+	background-size:contain;
+	background-repeat:no-repeat;
+	background-position:center;*/
+	object-fit:contain;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:3;
+	height:100%;
+	width:100%;
+}
+#screen {
+	object-fit:contain;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:2;
+	height:100%;
+	width:100%;
+}
+
+/* COLOR 1 */
+#frame #path3753,
+#frame #rect4504,
+#frame #path4063,
+#menu #menu-buttons,
+#menu #menu-toggle {
+	fill:#00FF00 !important;
+	background-color:#00FF00;
+}
+
+/* COLOR 2 */
+#frame #path4188-4,
+#frame #path4188,
+#frame #path4188-8,
+#frame #path4188-0-9,
+#frame #path4188-0,
+#frame #path4188-0-8,
+#frame #path3113,
+#frame #path4523,
+#frame #path4240-9 {
+	fill:#FF6600 !important;
+	background-color:#FF6600;
+}
+
+#frame #path4188-4,
+#frame #path4188,
+#frame #path4188-8 {
+	cursor:pointer;
+}
+#menu {
+	position:fixed;
+	top:15px;
+	left:15px;
+	height:380px;
+	width:60px;
+	z-index:100;
+}
+#menu #menu-buttons {
+	position:fixed;
+	top:15px;
+	left:15px;
+	height:380px;
+	width:60px;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	padding:5px;
+	z-index:100;
+	display:none;
+}
+#menu button {
+	width:60px;
+	height:60px;
+	transition:background-color 0.3s;
+	cursor:pointer;
+	border:none;
+	background-color:rgba(0,0,0,0);
+	margin-top:2px;
+	border-radius:5px;
+}
+#menu button:hover {
+	background-color:rgba(0,0,0,0.5);
+}
+#menu #menu-toggle {
+	z-index:100;
+	width:60px;
+	height:20px;
+	padding:5px;
+	position:absolute;
+	top:0;
+	border-top-right-radius:5px;
+	border-top-left-radius:5px;
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+	background-image:url("menuOpen.svg");
+	background-position:center;
+	background-size:50px 50px;
+	background-repeat:no-repeat;
+	cursor:pointer;
+}
+#menu #options {
+	margin-top:0;
+	background-image:url("options.svg");
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size:50px 50px;
+}
+#menu #version {
+	background-image:url("version4.svg");
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size:50px 50px;
+}
+#menu #pause {
+	background-image:url("pause.svg");
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size:50px 50px;
+}
+#menu #sound {
+	background-image:url("soundOn.svg");
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size:50px 50px;
+}
+#menu #save {
+	background-image:url("save.svg");
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size:40px 40px;
+}
+#menu #reset {
+	background-image:url("reset.svg");
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size:50px 50px;
+}
+@media screen and (max-width:px){
+	
+}
+/* Icons
+Stats: #g4075
+Food: #g5096
+Cleanup: #g4163
+Games: #g4269
+Connect: #g4341
+Discipline: #g4378
+Medicine: #g4404
+Mail: #g4440
+History: #g4543
+Annoyed: #g5104
+*/
+#screen #g5305 {
+	opacity:1 !important;
+}
+/*#screen #g4075,
+#screen #g4543,
+#screen #g5104,
+#screen #g4440,
+#screen #g4404,
+#screen #g4378,
+#screen #g4341,
+#screen #g4269,
+#screen #g4163,
+#screen #g5096 {
+	opacity:0.2;
+}*/
