@@ -1,22 +1,56 @@
 var menu = 0;
 
 var icon = 0; //Icon selected (1-9) 0=Nothing selected
+var iconMenuLevel = 1; //Menu level; 1=no app open, 2=app main open, 3 onwards=level of app menu
+
+$.fn.animateRotate = function(angle, duration, easing, complete) {
+  var args = $.speed(duration, easing, complete);
+  var step = args.step;
+  return this.each(function(i, e) {
+    args.complete = $.proxy(args.complete, e);
+    args.step = function(now) {
+      $.style(e, 'transform', 'rotate(' + now + 'deg)');
+      if (step) return step.apply(e, arguments);
+    };
+
+    $({deg: 0}).animate({deg: angle}, args);
+  });
+};
+$.fn.animateRotatel = function(angle, duration, easing, complete) {
+  var args = $.speed(duration, easing, complete);
+  var step = args.step;
+  return this.each(function(i, e) {
+    args.complete = $.proxy(args.complete, e);
+    args.step = function(now) {
+      $.style(e, 'transform', 'rotate(' + now + 'deg)');
+      if (step) return step.apply(e, arguments);
+    };
+
+    $({deg: 180}).animate({deg: angle}, args);
+  });
+};
 
 function buttonA() {
-	if (icon < 9) {
-		icon = icon + 1;
-	} else if (icon == 9) {
-		icon = 0;
+	if (iconMenuLevel == 1) {
+		if (icon < 9) {
+			icon = icon + 1;
+		} else if (icon == 9) {
+			icon = 0;
+		}
 	}
 }
 function buttonB() {
-	if (icon > 0) {
-		alert('Open app number ' + icon + '.');
+	if (iconMenuLevel == 1) {
+		if (icon > 0) {
+			alert('Open app number ' + icon + '.');
+		}
 	}
 }
 function buttonC() {
-	if (icon > 0) {
-		icon = 0
+	if (iconMenuLevel == 1) {
+		if (icon > 0) {
+			icon = 0
+		}
 	}
 }
 
@@ -129,17 +163,17 @@ function highlightIcons() {
 function menuToggle() {
 	if (menu == 1) {
 		$('#menu-buttons').slideUp();
-		$('#menu-toggle').css("background-image", "url('menuOpen.svg')");
 		$('#menu-toggle').animate({"border-top-left-radius": "5px"},0);
 		$('#menu-toggle').animate({"border-top-right-radius": "5px"},0);
 		$('#menu-toggle').animate({top: "0px"});
+		$('#menu-image').animateRotatel(0, 250, "linear");
 		menu = 0;
 	} else if (menu == 0) {
 		$('#menu-buttons').slideDown();
-		$('#menu-toggle').css("background-image", "url('menuClose.svg')");
 		$('#menu-toggle').animate({"border-top-left-radius": "0px"},0);
 		$('#menu-toggle').animate({"border-top-right-radius": "0px"},0);
-		$('#menu-toggle').animate({top: "390px"});
+		$('#menu-toggle').animate({top: "395px"});
+		$('#menu-image').animateRotate(180, 250, "linear");
 		menu = 1;
 	}
 }
